@@ -20,7 +20,7 @@
 /* Global Colors */
 :root {
   /* Background Color - This color is applied to the background of the entire website as well as individual sections. */
-  --background-color: #ffffff;
+  --background-color: #f3f3f3;
 
   /* Default Color - This is the default color used for the majority of the text content. */
   --default-color: #444444;
