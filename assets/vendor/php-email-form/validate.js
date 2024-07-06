@@ -26,15 +26,8 @@
       thisForm.querySelector('.sent-message').classList.remove('d-block');
 
       let formData = new FormData( thisForm );
+      formData = prepare_form(formData);
 
-      for (const [key, value] of formData) {
-        if(key==='email'){
-        let data = `{\"${key}\":\"${value}\"}`;
-        formData = data;
-        break;
-        }
-        
-    }
       if ( recaptcha ) {
         if(typeof grecaptcha !== "undefined" ) {
           grecaptcha.ready(function() {
@@ -57,12 +50,25 @@
     });
   });
 
+  function prepare_form(formData){
+
+    let data = `{`;
+    for (const [key, value] of formData) {
+      data = data + `\"${key}\":\"${value}\"\,\n`;
+    }
+    data = data.slice(0,-2);
+    data = data + `\n}`;
+
+    console.log(data);
+    return data;
+  }
+
   function php_email_form_submit(thisForm, action, formData) {
 
     fetch(action, {
       method: 'POST',
       body: formData,
-      // headers: {'X-Requested-With': 'XMLHttpRequest'}
+      // headers: {'Access-Control-Allow-Origin': '*'}
     })
     .then(response => {
       if( response.ok ) {
@@ -76,7 +82,7 @@
       data.trim();
       thisForm.querySelector('.sent-message').classList.add('d-block');
       thisForm.reset(); 
-      
+      console.log('this block executed line 92')
     })
     .catch((error) => {
       displayError(thisForm, error);
