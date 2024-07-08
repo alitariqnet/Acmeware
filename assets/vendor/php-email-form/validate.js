@@ -82,7 +82,7 @@
       data.trim();
       thisForm.querySelector('.sent-message').classList.add('d-block');
       thisForm.reset(); 
-      console.log('this block executed line 92')
+  
     })
     .catch((error) => {
       displayError(thisForm, error);
