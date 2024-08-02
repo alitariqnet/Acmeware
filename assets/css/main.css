@@ -957,7 +957,8 @@ section,
 # Clients Section
 --------------------------------------------------------------*/
 .clients {
-  --background-color: color-mix(in srgb, var(--heading-color), transparent 95%);
+  /* --background-color: color-mix(in srgb, var(--heading-color), transparent 95%); */
+  background-color: #fff;
   padding: 12px 0;
 }
 
@@ -975,7 +976,7 @@ section,
 }
 
 .clients .swiper-slide img:hover {
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 /*--------------------------------------------------------------
