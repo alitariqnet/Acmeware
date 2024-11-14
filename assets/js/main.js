@@ -222,3 +222,13 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+    .register('../../serviceworker.js')
+    .then(reg => 
+      console.log('service worker available!')
+    ).catch( err => console.log(`Service worker: error[${err}]`))
+  });
+}
