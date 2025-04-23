@@ -1,0 +1,3 @@
+# robots.txt file of https://acmeware.net/
+Disallow:
+sitemap: https://acmeware.net/sitemap.xml
